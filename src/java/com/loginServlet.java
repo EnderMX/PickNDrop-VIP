@@ -60,6 +60,7 @@ public class loginServlet extends HttpServlet {
             Object s2 = request.getSession().getAttribute("driver");
             Object s3 = request.getSession().getAttribute("admin");
             String loginPost = request.getParameter("loginPost");
+            String loginError = "false";
             if (loginPost!=null && loginPost.equals("loginPost")){
                 DB db = new DB();
                 db.setConnection("root", "root");
@@ -81,7 +82,8 @@ public class loginServlet extends HttpServlet {
                             request.getSession().setAttribute("admin", username);                            
                             response.sendRedirect("adminView/admin.jsp");
                         } else { //if not found go to loginpage
-                            request.setAttribute("error", "Invalid Username or Password");
+                            loginError = "true";
+                            request.setAttribute("error", loginError);
                             response.sendRedirect(page);
                         }   
                         break;
@@ -96,7 +98,8 @@ public class loginServlet extends HttpServlet {
                             request.getSession().setAttribute("admin",username);
                             response.sendRedirect("adminView/admin.jsp");
                         } else { //if not found go to loginpage
-                            request.setAttribute("error", "Invalid Username or Password");
+                            loginError = "true";
+                            request.setAttribute("error", loginError);
                             response.sendRedirect(page);
                         }   
                         break;

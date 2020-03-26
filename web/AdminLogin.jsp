@@ -74,6 +74,19 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script>
+            <%
+                Object loginFail3 = request.getSession().getAttribute("error");   //getting session
+                if (loginFail3 != null) {  //if it is not null
+            %>
+                    alert("Incorrect Username or Password"); //alert it couldn't login
+            <%
+                    session.removeAttribute("error"); //after that removing session so it can be created again when it can login fail
+                } else {  //else do nothing
+
+                }
+            %>
+        </script>
+        <script>
 
             $(document).ready(function () {
 
