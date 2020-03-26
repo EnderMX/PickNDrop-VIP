@@ -11,7 +11,10 @@
         <title>Customer Registration Page</title>
     </head>
     <body>
+        <div id="msg" style="font-size:largest;">
 
+            Loading, please wait...
+        </div>
         <div class="container">
             <h5 class="indigo-text center"> Customer Registration</h5>
             <div class="row">
@@ -21,7 +24,7 @@
                             <input id="name" name ="name" type="text" class="validate" required>
                             <label for="name">Name</label>
                         </div>
-                        
+
                         <div class="input-field col s6">
                             <input id="username" name="username" type="text" class="validate" required>
                             <label for="username">Username</label>
@@ -48,12 +51,27 @@
             </div>
             <a title="Login" class="ngl btn-floating btn-large waves-effect waves-light red" href="login.jsp"><i class="material-icons">input</i></a>
         </div>
-        
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script>
+            <%
+                Object addFail3 = request.getSession().getAttribute("addFail");   //getting session
+                if (addFail3 != null) {  //if it is not null
+            %>
+                    alert("Couldn't add driver. Username or email already exists."); //alert it couldn't add customer
+            <%
+                    session.removeAttribute("addFail"); //after that removing session so it can be created again when it cant add customer
+                } else {  //else do nothing
+
+                }
+            %>
+        </script>
+        <script>
             $(document).ready(function () {
                 $('select').material_select();
+                $('#body').show();
+                $('#msg').hide();
             });
         </script>
     </body>
