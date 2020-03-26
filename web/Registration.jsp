@@ -18,24 +18,24 @@
                 <form class="col s12" id="Registration" action="CRegistrationServlet.do" method="post">
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="name" type="text" class="validate" required>
+                            <input id="name" name ="name" type="text" class="validate" required>
                             <label for="name">Name</label>
                         </div>
                         
                         <div class="input-field col s6">
-                            <input id="username" type="text" class="validate" required>
+                            <input id="username" name="username" type="text" class="validate" required>
                             <label for="username">Username</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" required multiple>
+                            <input id="email" name = "email"type="email" class="validate" required multiple>
                             <label for="email">Email</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="password" type="password" class="validate" minlength="6" required>
+                            <input id="password" name ="password" type="password" class="validate" minlength="6" required>
                             <label for="password">Password</label>
                         </div>
                     </div>
