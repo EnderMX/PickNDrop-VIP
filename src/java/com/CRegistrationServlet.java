@@ -5,6 +5,7 @@
  */
 package com;
 
+import com.lambdaworks.crypto.SCryptUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -102,7 +103,7 @@ public class CRegistrationServlet extends HttpServlet {
                     //Set param values
                     pp.setString(1, username);
                     pp.setString(2, name);
-                    pp.setString(3, password);
+                    pp.setString(3, hashPassword(password));
                     pp.setString(4, email);
 
                     //Execute SQL query
@@ -144,5 +145,9 @@ public class CRegistrationServlet extends HttpServlet {
             response.sendRedirect("Registration.jsp");
         }
     }
+    public static String hashPassword(String password) {
+        String generatedSecuredPasswordHash = SCryptUtil.scrypt(password, 16, 16, 16);
+        return generatedSecuredPasswordHash;
 
+    }
 }
