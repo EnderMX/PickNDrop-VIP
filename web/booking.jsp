@@ -108,10 +108,6 @@
 
                 var latlng = new google.maps.LatLng(4.1735874, 73.5080283); //Set the default location of map
                 var latlng2 = new google.maps.LatLng(4.1741652, 73.5087578);
-                var mapArray = [];
-                var markersArray = [];
-                var coordsArray = [];
-
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: latlng,
                     zoom: 15, //The zoom value for map
