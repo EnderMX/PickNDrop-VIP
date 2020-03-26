@@ -70,12 +70,7 @@
         </div>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#body').show();
-                $('#msg').hide();
-            });
-        </script>
+        
 
         <div>
 
@@ -108,20 +103,57 @@
         <div id="sum">Sum: </div>
 
         <script>
-            $(document).ready(function () {
 
-                $("#button1").click(initMap);
-                $("#date").datepicker();
-                $("#time").timepicker();
+            window.onload = function () {
+
+                var latlng = new google.maps.LatLng(4.1735874, 73.5080283); //Set the default location of map
+                var latlng2 = new google.maps.LatLng(4.1741652, 73.5087578);
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    center: latlng,
+                    zoom: 15, //The zoom value for map
+
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+                });
+
+                var marker = new google.maps.Marker({
+                    position: latlng,
+                    map: map,
+                    title: 'Origin', //The title on hover to display
+
+                    draggable: true //this makes it drag and drop
+
+                });
+
+                google.maps.event.addListener(marker, 'dragend', function (a) {
+
+                    document.getElementById('origin').value = a.latLng.lat().toFixed(4) + ', ' + a.latLng.lng().toFixed(4); //Place the value in input box
+
+
+                });
+
+                var marker2 = new google.maps.Marker({
+                    position: latlng2,
+                    map: map,
+                    title: 'Destination', //The title on hover to display
+
+                    draggable: true //this makes it drag and drop
+
+                });
+
+                google.maps.event.addListener(marker2, 'dragend', function (b) {
+
+                    document.getElementById('destination').value = b.latLng.lat().toFixed(4) + ', ' + b.latLng.lng().toFixed(4); //Place the value in input box
+
+
+
+
+                });
+                
+
                 function initMap() {
                     var directionsService = new google.maps.DirectionsService();
                     var directionsDisplay = new google.maps.DirectionsRenderer();
-
-                    var myOptions = {
-                        zoom: 7,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                    };
-                    var map = new google.maps.Map(document.getElementById("map"), myOptions);
                     directionsDisplay.setMap(map);
                     var o2 = document.getElementById('origin').value;
                     var d2 = document.getElementById('destination').value;
@@ -131,6 +163,8 @@
                     document.getElementById('time2').value = d;
                     document.getElementById('origin2').value = o2;
                     document.getElementById('destination2').value = d2;
+                    
+                    
                     var request = {
                         origin: o2,
                         destination: d2,
@@ -139,7 +173,9 @@
 
                     directionsService.route(request, function (response, status) {
                         if (status == google.maps.DirectionsStatus.OK) {
-
+                            document.getElementById('distance').innerHTML = "Distance: ";
+                            document.getElementById('duration').innerHTML = "Duration: ";
+                            document.getElementById('sum').innerHTML = "Sum: ";
                             document.getElementById('distance').innerHTML +=
                                     response.routes[0].legs[0].distance.value + " meters";
                             document.getElementById('duration').innerHTML +=
@@ -160,8 +196,20 @@
                         }
                     });
                 }
+                $(document).ready(function () {
+                    $('#body').show();
+                    $('#msg').hide();
+                    $("#button1").click(initMap);
+                    $("#date").datepicker();
+                    $("#time").timepicker();
+                });
+            };
 
-            });
+
+
+
+
+
         </script>
 
     </body>
