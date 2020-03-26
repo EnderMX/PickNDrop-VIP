@@ -59,6 +59,7 @@
                         <li><a href="adminDriver.jsp">Driver</a></li>
                         <li><a href="adminDriverAssign.jsp">Assign Driver</a></li>
                         <li><a href="adminTurnover.jsp">Turnover</a></li>
+                        <li><a href="adminBookingRequest.jsp">Booking Request</a></li>
                     </ul>
                 </div>
             </nav>
