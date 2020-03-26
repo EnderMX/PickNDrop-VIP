@@ -31,6 +31,7 @@ import model.DB;
 public class calcServlet extends HttpServlet {
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/calculateDistanceAndTime/calculateDistanceAndTime.wsdl")
     private CalculateDistanceAndTime_Service service;
+    
 
     
     /**
@@ -110,6 +111,8 @@ public class calcServlet extends HttpServlet {
         com.CalculateDistanceAndTime port = service.getCalculateDistanceAndTimePort();
         return port.calculateDistanceAndTime(i, j);
     }
+
+    
 
     
 

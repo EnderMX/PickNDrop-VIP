@@ -63,6 +63,7 @@
                         <li><a href="adminDriver.jsp">Driver</a></li>
                         <li><a href="adminDriverAssign.jsp">Assign Driver</a></li>
                         <li><a href="adminTurnover.jsp">Turnover</a></li>
+                        <li><a href="adminBookingRequest.jsp">Booking Request</a></li>
                     </ul>
                 </div>
             </nav> 
@@ -77,6 +78,7 @@
                             <td>TOTAL</td>
                             <td>GST</td>
                             <td>NET TOTAL</td>
+                            <td>STATUS</td>
                         </tr>  
                         <%
                             Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/SprintTwoDatabase", "root", "root");
@@ -87,19 +89,14 @@
                             int profit = 0;
                             //int driverID =3;
                             //int driverID = Integer.parseInt(request.getParameter("driverID"));
-                            
                             int driverID = 0;
                             String driverIDStr = request.getParameter("driverID");
-                               String date = request.getParameter("date");
                             if (driverIDStr != null && driverIDStr.trim().length() > 0) {
                                 Integer.parseInt(driverIDStr);
                             }
-                            
-                            
-                            
-                            pp = con.prepareStatement("SELECT * FROM BOOKING where STATUS=? AND BOOKINGDATE=?");  //taking all completed requests from specified driverid
+                            pp = con.prepareStatement("SELECT * FROM BOOKING where STATUS=? AND DRIVERID=?");  //taking all completed requests from specified driverid
                             pp.setString(1, "COMPLETED");
-                            pp.setString(2,date);
+                            pp.setString(2,driverIDStr);
                             ResultSet rs = pp.executeQuery();
                             while (rs.next()) {
 
@@ -110,8 +107,8 @@
                         <td><%=rs.getString("DESTINATION")%></td>
                         <td><%=rs.getInt("TOTAL")%></td>
                         <td><%=gst = rs.getInt("TOTAL") * 5 / 100%></td> 
-                        <td><%=netTotal = rs.getInt("TOTAL") + gst%></td> 
-                          <td><%=rs.getString("BOOKINGDATE")%></td>
+                        <td><%=netTotal = rs.getInt("TOTAL") + gst%></td>
+                        <td><%=rs.getString("STATUS")%></td>
                         <tr></tr>
 
                         <%
@@ -120,17 +117,11 @@
                             }
                         %>
                     </table>      
-                     
-                     <input type="text" placeholder="date" name = "date" required>   
+                    <input type="text" placeholder="driver id" name = "driverID" required>                
             <input type="submit" value ="submit" name = "submit">
            </form>
             </div>
-            <li>
-                <div class="divider"></div>
-            </li>
-            <li>
-                <div class="divider"></div>
-            </li>
+            
             <div>
                 <p>Total Profit: <% out.println(profit);%></p>
                 
