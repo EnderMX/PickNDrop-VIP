@@ -126,7 +126,7 @@
                         <input type="text" name = "bookingID" placeholder="booking id" required>
                     </div>
                     <div class="input-field col s1 left">
-                    <input class="input-field col s12 waves-effect waves-light btn" type="submit" value ="Complete" name = "complete">
+                    <input class="input-field col s15 waves-effect waves-light btn" type="submit" value ="Complete" name = "complete">
                 </div>
             </form>     
 

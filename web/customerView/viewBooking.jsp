@@ -96,7 +96,7 @@
                             rs = pp.executeQuery();
                             while (rs.next()) {
                                 //inserting data to table
-                        %>
+%>
                         <td><%=rs.getInt("BOOKINGID")%></td>    
                         <td><%=rs.getInt("CUSTOMERID")%></td>                
                         <td><%=rs.getString("ORIGIN")%></td>
@@ -111,16 +111,16 @@
                             }
 
                         %>
-                        
+
                     </table>
-                        <div class="row">
-                            <div class="input-field col s1 right" style="left:-1290px;">
-                                <input class="input-field col s12 waves-effect waves-light btn" type="submit" value = "Cancel" name = "delete">
-                            </div>
-                            <div class="input-field col s1">
-                                <input type="text" name = "id" placeholder="booking id" required> 
-                            </div>
+                    <div class="row">
+                        <div class="input-field col s1 left">
+                            <input type="text" name = "id" placeholder="booking id" required> 
                         </div>
+                        <div class="input-field col s1 left">
+                            <input class="input-field col s12 waves-effect waves-light btn" type="submit" value = "Cancel" name = "delete">
+                        </div>
+                    </div>
                 </div>
             </form>   
         </div>
@@ -140,7 +140,7 @@
                 Object bookingDeleted = request.getSession().getAttribute("bookingDeleted");   //getting session
                 if (bookingDeleted != null) {  //if it is not null
             %>
-                    alert("Booking Cancelled"); //alert it is cancelled
+            alert("Booking Cancelled"); //alert it is cancelled
             <%
                     session.removeAttribute("bookingDeleted"); //after that removing session so it can be created again when something is cancelled
                 } else {  //else do nothing
@@ -149,7 +149,7 @@
                 Object bookingDeletedFail2 = request.getSession().getAttribute("bookingDeletedFail");   //getting session
                 if (bookingDeletedFail2 != null) {  //if it is not null
             %>
-                    alert("Couldn't cancel booking"); //alert couldn't cancel
+            alert("Couldn't cancel booking"); //alert couldn't cancel
             <%
                     session.removeAttribute("bookingDeletedFail"); //after that removing session so it can be created again when it couldn't cancel booking
                 } else {  //else do nothing
