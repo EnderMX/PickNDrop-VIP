@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css"> 
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
-        <title>JSP Page</title>
+        <title>Assign Driver Page</title>
     </head>
     <body>
 
@@ -23,7 +23,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Admin Panel</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -98,9 +98,17 @@
                         %>
                     </table>
                 </div>
-                <input type="text" name = "bookingID" placeholder="booking id" required>
-                <input type="text" placeholder="driver id" name = "driverID" required>                
-                <input type="submit" value ="Assign" name = "assign">
+                <div class="row">
+                    <div class="input-field col s1 left">
+                        <input type="text" name = "bookingID" placeholder="booking id" required>
+                    </div>
+                    <div class="input-field col s1">
+                        <input type="text" placeholder="driver id" name = "driverID" required>  
+                    </div>
+                    <div class="input-field col s1 waves-effect waves-light btn" style="bottom:-25px">
+                        <input type="submit" value ="Assign" name = "assign">
+                    </div>
+                </div>
             </form>
         </div>
         <script>

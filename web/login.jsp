@@ -50,7 +50,7 @@
                                         <label for='password'>Enter your password</label>
                                     </div>
                                     <label style='float: right;'>
-                                        <a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+                                        <a class='pink-text' href='#!'><b></b></a>
                                     </label>
                                 </div>
 

@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css"> 
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
-        <title>JSP Page</title>
+        <title>Customer Page</title>
     </head>
     <body>
 
@@ -18,9 +18,10 @@
         </div>
         <div id="body" style="display:none;">
 
+
             <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center">Customer Profile</a>
+                <div class="nav-wrapper red">
+                    <a href="#" class="brand-logo center">Customer Profile</a><a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <form action="${pageContext.servletContext.contextPath}/loginServlet.do" method ="get">
@@ -44,34 +45,61 @@
                         </li>
                     </ul>
 
-                    <ul class="dropdown-content" id="user_dropdown">
 
-                        <li><a href="#!">Profile</a></li>
-
-                    </ul>
-                    <ul id="nav-mobile" class="left hide-on-med-and-down">
-                        <li><a class="active" href="home.jsp">Home</a></li>
+                    <ul id="mobile-demo" class="side-nav">
+                        <li><a class="active" href="index.jsp">Home</a></li>
                         <li><a href="booking.jsp">Booking</a></li>
                         <li><a href="viewBooking.jsp">View Booking</a></li>
                         <li><a href="about.jsp">About</a></li>
                         <li><a href="contact.jsp">Contact</a></li>
-                    </ul>
+                    </ul>       
+
                 </div>
             </nav> 
         </div>
+
+        <div class="col s6">
+            <div style="padding: 35px;" align="center" class="card">
+                <div class="row">
+                    <div class="left card-title">
+                        <b>My profile</b>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="booking.jsp">
+                        <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <i class="indigo-text text-lighten-1 large material-icons">person</i>
+                            <span class="indigo-text text-lighten-1"><h5>Booking</h5></span>
+                        </div>
+                    </a>
+
+                    <div class="col s1">&nbsp;</div>
+                    <div class="col s1">&nbsp;</div>
+
+                    <a href="viewBooking.jsp">
+                        <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                            <i class="indigo-text text-lighten-1 large material-icons">assignment</i>
+                            <span class="indigo-text text-lighten-1"><h5>View Bookings</h5></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <script>
             <%
                 Object bookingDeletedFail = request.getSession().getAttribute("bookingDeletedFail");   //getting session
                 if (bookingDeletedFail != null) {  //if it is not null
             %>
-                    alert("Couldn't cancel booking"); //alert couldn't cancel booking
+            alert("Couldn't cancel booking"); //alert couldn't cancel booking
             <%
                     session.removeAttribute("bookingDeletedFail"); //after that removing session so it can be created again when it can't cancel booking
                 } else {  //else do nothing
 
                 }
             %>
-        </script>                        
+        </script>      
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script type="text/javascript">

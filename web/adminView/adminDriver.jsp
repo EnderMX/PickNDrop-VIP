@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css"> 
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
-        <title>JSP Page</title>
+        <title>Edit Driver Page</title>
     </head>
     <body>
 
@@ -23,7 +23,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Admin Panel</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -126,13 +126,21 @@
                             </div>
                         </div> 
                     </table>
-                    <a class="waves-effect waves-light btn modal-trigger" href="#adddriver">Add</a>
+                    <div class="row">
+                        <div class="input-field col s1 left">
+                            <a class="waves-effect waves-light btn modal-trigger" href="#adddriver">Add</a>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
         <form action="${pageContext.servletContext.contextPath}/DeleteDriver.do" method="post">
-            <input type="text" placeholder="Driver ID" name = "driverID" required> 
-            <button id= "delete" value="delete" name="delete" type="submit" class="waves-effect waves-light btn">Delete</button>
+            <div class="row">
+                <div class="input-field col s1 left">
+                    <input type="text" placeholder="Driver ID" name = "driverID" required> 
+                    <button id= "delete" value="delete" name="delete" type="submit" class="waves-effect waves-light btn">Delete</button>
+                </div>
+            </div>
         </form>
 
         <form action="${pageContext.servletContext.contextPath}/EditDriver.do" method="post">
@@ -163,9 +171,13 @@
             </div>
 
         </form>
-        <button id="contact-btn" class="waves-effect waves-light btn" onClick="toggleFields()">
-            Edit
-        </button
+        <div class="row">
+            <div class="input-field col s1 left">
+                <button id="contact-btn" class="waves-effect waves-light btn" onClick="toggleFields()">
+                    Edit
+                </button>
+            </div>
+        </div>
 
     </form>
 </div>
@@ -174,7 +186,7 @@
         Object added = request.getSession().getAttribute("driverAdded");   //getting session
         if (added != null) {  //if it is not null
     %>
-            alert("Driver Added"); //alert it is added
+    alert("Driver Added"); //alert it is added
     <%
             session.removeAttribute("driverAdded"); //after that removing session so it can be created again when something new is added
         } else {  //else do nothing
@@ -184,7 +196,7 @@
         Object removed = request.getSession().getAttribute("driverRemoved");   //getting session
         if (removed != null) {  //if it is not null
     %>
-            alert("Driver Removed"); //alert it is removed
+    alert("Driver Removed"); //alert it is removed
     <%
             session.removeAttribute("driverRemoved"); //after that removing session so it can be created again when something is removed
         } else {  //else do nothing
@@ -194,7 +206,7 @@
         Object edit = request.getSession().getAttribute("driverEdit");   //getting session
         if (edit != null) {  //if it is not null
     %>
-            alert("Driver Edited"); //alert it is edited
+    alert("Driver Edited"); //alert it is edited
     <%
             session.removeAttribute("driverEdit"); //after that removing session so it can be created again when something is edited
         } else {  //else do nothing
@@ -203,7 +215,7 @@
         Object removeFail2 = request.getSession().getAttribute("removeFail");   //getting session
         if (removeFail2 != null) {  //if it is not null
     %>
-            alert("Couldn't remove driver"); //alert it is edited
+    alert("Couldn't remove driver"); //alert it is edited
     <%
             session.removeAttribute("removeFail"); //after that removing session so it can be created again when something is edited
         } else {  //else do nothing
@@ -212,7 +224,7 @@
         Object addFail2 = request.getSession().getAttribute("addFail");   //getting session
         if (addFail2 != null) {  //if it is not null
     %>
-            alert("Couldn't add driver. Username or email already exists."); //alert it couldn't add driver
+    alert("Couldn't add driver. Username or email already exists."); //alert it couldn't add driver
     <%
             session.removeAttribute("addFail"); //after that removing session so it can be created again when it cant add driver
         } else {  //else do nothing

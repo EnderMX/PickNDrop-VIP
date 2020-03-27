@@ -10,7 +10,7 @@
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
 
 
-        <title>JSP Page</title>
+        <title>Admin Page</title>
     </head>
     <body>
 
@@ -21,8 +21,8 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center">Admin Panel</a>
+                <div class="nav-wrapper red">
+                    <a href="#" class="brand-logo center">Admin Panel</a> <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <form action="${pageContext.servletContext.contextPath}/loginServlet.do" method ="get">
@@ -44,23 +44,76 @@
                         </li>
                     </ul>
 
-
-
-                    <ul class="dropdown-content" id="user_dropdown">
-
-                        <li><a href="#!">Profile</a></li>
-
+                    <ul id="mobile-demo" class="side-nav">
+                        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Edit Customer</a></li>
+                        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Turnover</a></li>
+                        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Edit Driver</a></li>
+                        <li class="bold"><a href="getting-started.html" class="waves-effect waves-teal">Assign Driver</a></li>
                     </ul>
-                    <ul id="nav-mobile" class="left hide-on-med-and-down">
-                        <li><a class="active" href="admin.jsp">Home</a></li>
-                        <li><a href="adminCustomer.jsp">Customer</a></li>
-                        <li><a href="adminDriver.jsp">Driver</a></li>
-                        <li><a href="adminDriverAssign.jsp">Assign Driver</a></li>
-                        <li><a href="adminTurnover.jsp">Turnover</a></li>
-                        <li><a href="adminBookingRequest.jsp">Booking Request</a></li>
-                    </ul>
+
                 </div>
-            </nav> 
+            </nav>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+            <div class="row">
+                <div class="col s6">
+                    <div style="padding: 35px;" align="center" class="card">
+                        <div class="row">
+                            <div class="left card-title">
+                                <b>User Management</b>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <a href="adminCustomer.jsp">
+                                <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                                    <i class="indigo-text text-lighten-1 large material-icons">person</i>
+                                    <span class="indigo-text text-lighten-1"><h5>Edit Customer</h5></span>
+                                </div>
+                            </a>
+                            <div class="col s1">&nbsp;</div>
+                            <div class="col s1">&nbsp;</div>
+
+                            <a href="adminTurnover.jsp">
+                                <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                                    <i class="indigo-text text-lighten-1 large material-icons">assignment</i>
+                                    <span class="indigo-text text-lighten-1"><h5>Turnover</h5></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col s6">
+                    <div style="padding: 35px;" align="center" class="card">
+                        <div class="row">
+                            <div class="left card-title">
+                                <b>Driver Management</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <a href="adminDriver.jsp">
+                                <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                                    <i class="indigo-text text-lighten-1 large material-icons">people</i>
+                                    <span class="indigo-text text-lighten-1"><h5>Edit Driver</h5></span>
+                                </div>
+                            </a>
+
+                            <div class="col s1">&nbsp;</div>
+                            <div class="col s1">&nbsp;</div>
+
+                            <a href="adminDriverAssign.jsp">
+                                <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                                    <i class="indigo-text text-lighten-1 large material-icons">directions_car</i>
+                                    <span class="indigo-text text-lighten-1"><h5>Assign Driver</h5></span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <script>
             <%

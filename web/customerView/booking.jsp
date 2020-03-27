@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.8/angular-material.min.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <title>JSP Page</title>
+        <title>Booking Page</title>
         <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/js/jquery.timepicker.min.css">
         <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/jquery-ui/jquery-ui.min.css">
         <link rel="stylesheet" href="${pageContext.servletContext.contextPath}/jquery-ui/jquery-ui.structure.min.css">
@@ -28,7 +28,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Booking Page</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -68,34 +68,58 @@
                 </div>
             </nav>
         </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        
 
-        <div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#body').show();
+                $('#msg').hide();
+            });
+        </script>
 
-            <p>Origin: <input id ="origin" type="text" name="origin" required> </p>
-            <br>
-            <p>Destination: <input id ="destination" type="text" name="destination" required> </p>       
-            <br>
-            <p>Date: <input id ="date" type="text" name="date" required> </p>       
-            <br>
-            <p>time: <input id ="time" type="text" name="time" required> </p>       
-            <br>
-            <button id = "button1">Submit</button>
+        <div class="container">
+
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="origin" type="text" name="origin" required>
+                        <label for="origin">Origin</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <input id="destination" type="text" name="destination" required>
+                        <label for="destination">Destination</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="date" type="text" class="datepicker" required>
+                        <label for="date">Date</label>
+                    </div>
 
 
-            <form action="${pageContext.servletContext.contextPath}/calcServlet.do" method="post">
-                <input id ="origin2" type="hidden" name="origin2"> 
-                <input id ="destination2" type="hidden" name="destination2">
-                <input id ="distance2" type="hidden" name="distance2" value ="0">
-                <input id ="duration2" type="hidden" name="duration2" value ="0">
-                <input id ="time2" type="hidden" name="time2" value ="0"> 
-                <input id ="date2" type="hidden" name="date2" value ="0"> 
-                <input id ="status" type="hidden" name="status" value ="pending">    
-                <br>
-                <button id ="button2">Booking</button>
-            </form>
+                    <div class="input-field col s4">
+                        <input id="time" type="text" name="time" required>
+                        <label for="time">Time</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s4 right">
+                        <button id="button1" class="btn btn-large btn-register waves-effect indigo" style="left:190px">Submit</button>
+                    </div>
+
+                    <form action="${pageContext.servletContext.contextPath}/calcServlet.do" method="post">
+                        <input id ="origin2" type="hidden" name="origin2"> 
+                        <input id ="destination2" type="hidden" name="destination2">
+                        <input id ="distance2" type="hidden" name="distance2" value ="0">
+                        <input id ="duration2" type="hidden" name="duration2" value ="0">
+                        <input id ="time2" type="hidden" name="time2" value ="0"> 
+                        <input id ="date2" type="hidden" name="date2" value ="0"> 
+                        <input id ="status" type="hidden" name="status" value ="pending">    
+                        <br>
+                        <button id ="button2" class="btn btn-large btn-register waves-effect indigo" style="top:-20px;">Booking</button>
+                    </form>
+                </div>
+            </div>
         </div>
         <div id="map" style="width: 500px; height: 200px;"></div> 
         <div id="duration">Duration: </div> 

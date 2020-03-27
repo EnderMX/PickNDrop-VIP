@@ -15,7 +15,7 @@
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
 
 
-        <title>JSP Page</title>
+        <title>View Bookings Page</title>
     </head>
     <body>
 
@@ -26,7 +26,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Bookings</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -91,7 +91,7 @@
                             pp = con.prepareStatement("SELECT * FROM BOOKING where DRIVERID=? AND STATUS=? AND BOOKINGDATE=?");    //taking all assigned requests
                             pp.setInt(1, driverid);
                             pp.setString(2, "ASSIGNED");
-                             pp.setString(3,date);
+                            pp.setString(3, date);
                             rs = pp.executeQuery();
                             while (rs.next()) {
 
@@ -110,23 +110,33 @@
                             rs.close();
                         %>
                     </table>
-                    <input type="text" name = "date" placeholder="date" required>
-                      <input type="submit" value ="submit" name = "submit">
+                    <div class="row">
+                        <div class="input-field col s1 left">
+                            <input type="text" name = "date" placeholder="date" required>
+                        </div>
+                        <div class="input-field col s1 left">
+                        <input class="input-field col s12 waves-effect waves-light btn" type="submit" value ="submit" name = "submit">
+                    </div>
                 </div>
             </form>     
-                    
-                    <form action="${pageContext.servletContext.contextPath}/bookingServlet3.do" method ="post"> 
-                          <input type="text" name = "bookingID" placeholder="booking id" required>
-                         <input type="submit" value ="Complete" name = "complete">
-                           </form>     
-                    
+
+            <form action="${pageContext.servletContext.contextPath}/bookingServlet3.do" method ="post"> 
+                <div class="row">
+                    <div class="input-field col s1 left">
+                        <input type="text" name = "bookingID" placeholder="booking id" required>
+                    </div>
+                    <div class="input-field col s1 left">
+                    <input class="input-field col s12 waves-effect waves-light btn" type="submit" value ="Complete" name = "complete">
+                </div>
+            </form>     
+
         </div>
         <script>
             <%
                 Object bookingComplete = request.getSession().getAttribute("bookingComplete");   //getting session
                 if (bookingComplete != null) {  //if it is not null
             %>
-                    alert("Booking completed"); //alert booking completed
+            alert("Booking completed"); //alert booking completed
             <%
                     session.removeAttribute("bookingComplete"); //after that removing session so it can be created again when it completes booking
                 } else {  //else do nothing
@@ -135,7 +145,7 @@
                 Object bookingCompleteFail = request.getSession().getAttribute("bookingCompleteFail");   //getting session
                 if (bookingCompleteFail != null) {  //if it is not null
             %>
-                    alert("Couldn't complete booking. Incorrect booking ID"); //alert couldn't complete incorrect booking id
+            alert("Couldn't complete booking. Incorrect booking ID"); //alert couldn't complete incorrect booking id
             <%
                     session.removeAttribute("bookingCompleteFail"); //after that removing session so it can be created again when it can't complete booking
                 } else {  //else do nothing

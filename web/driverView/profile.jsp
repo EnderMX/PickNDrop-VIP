@@ -14,7 +14,7 @@
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
 
 
-        <title>JSP Page</title>
+        <title>Profile Page</title>
     </head>
     <body>
 
@@ -25,7 +25,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Driver Profile</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -73,7 +73,6 @@
                             <td>NAME</td>
                             <td>EMAIL</td>
                             <td>STATUS</td>
-
                         </tr>  
                         <%
                             Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/SprintTwoDatabase", "root", "root");
@@ -85,7 +84,7 @@
                             while (rs.next()) {
 
                                 //inserting data to table
-%>
+                        %>
                         <td><%=rs.getInt("DRIVERID")%></td>    
                         <td><%=rs.getString("USERNAME")%></td>                
                         <td><%=rs.getString("NAME")%></td>
@@ -97,11 +96,19 @@
                             }
                         %>
                     </table>
-                    <input type="submit" name = "available" value ="Available">
+                    <div class="row">
+                        <div class="input-field col s1 left">
+                            <input class="input-field col s12 waves-effect waves-light btn" type="submit" name = "available" value ="Available">
+                        </div>
+                    </div>
                 </div>
             </form> 
             <form action="${pageContext.servletContext.contextPath}/availableServlet.do" method ="post">
-                <input type="submit" name = "notAvailable" value="Not Available">
+                <div class="row">
+                    <div class="input-field col s1 left">
+                        <input class="input-field col s17 waves-effect waves-light btn" type="submit" name = "notAvailable" value="Not Available">
+                    </div>
+                </div>
             </form>
         </div>
         <script>
