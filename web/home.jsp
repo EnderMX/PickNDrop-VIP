@@ -38,7 +38,7 @@
                     <li class="active"><a href="home.jsp">Home</a></li>
                     <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown2">Services</a></li>
                     <li><a class="dropdown-button" data-beloworigin="true" data-hover="true" data-constrainwidth="false" href="#!" data-activates="dropdown1">Contact</a></li>
-                    <li><a href="Navmenu.html">About</a></li>  
+                    <li><a href="#!">About</a></li>  
                 </ul>
                 <ul id="mobile-demo" class="side-nav">
                     <li class="bold"><a href="home.jsp" class="waves-effect waves-teal">Home</a></li>

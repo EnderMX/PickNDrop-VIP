@@ -69,7 +69,7 @@
             <br>
             Zidane Mahmood: S1701391
             <br>
-            Mohamed AimanS: S1700130
+            Mohamed Aiman: S1700130
         </p>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -9,6 +9,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.8/angular-material.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.8/angular-material.min.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css"> 
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
@@ -120,7 +121,7 @@
                             <input type="text" placeholder="driver id" name = "driverID" required>
                         </div>
                          <div class="input-field col s1 left">
-                            <input type="text" placeholder="date" name = "bookingDate" required>
+                            <input type="text" id = "bookingDate" placeholder="date" class="datepicker" name = "bookingDate" required>
                         </div>
                         <div class="input-field col s1 left">
                             <input class="input-field col s12 waves-effect waves-light btn" type="submit" value ="submit" name = "submit">
@@ -141,6 +142,7 @@
     $(document).ready(function () {
         $('#body').show();
         $('#msg').hide();
+        $(".datepicker").datepicker();
     });
 </script>
 
