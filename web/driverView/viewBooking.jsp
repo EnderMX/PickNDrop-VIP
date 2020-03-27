@@ -72,6 +72,7 @@
                             <td>ORIGIN</td>
                             <td>DESTINATION</td>
                             <td>TOTAL</td>
+                            <td>BOOKING DATE</td>
                         </tr>
                         <%
                             Connection con = DriverManager.getConnection("jdbc:derby://localhost:1527/SprintTwoDatabase", "root", "root");
