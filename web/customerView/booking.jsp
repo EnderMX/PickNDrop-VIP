@@ -103,8 +103,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s4 right">
-                        <button id="button1" class="btn btn-large btn-register waves-effect indigo" style="left:190px">Submit</button>
+                    <div class="input-field col s4 left">
+                        <button id="button1" class="btn btn-large btn-register waves-effect indigo">Submit</button>
                     </div>
 
                     <form action="${pageContext.servletContext.contextPath}/calcServlet.do" method="post">
@@ -116,7 +116,7 @@
                         <input id ="date2" type="hidden" name="date2" value ="0"> 
                         <input id ="status" type="hidden" name="status" value ="pending">    
                         <br>
-                        <button id ="button2" class="btn btn-large btn-register waves-effect indigo" style="top:-20px;">Booking</button>
+                        <button id ="button2" class="btn btn-large btn-register waves-effect indigo right" style="top:-20px;">Booking</button>
                     </form>
                 </div>
             </div>

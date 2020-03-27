@@ -1,7 +1,3 @@
-<%-- 
-   
---%>
-
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -27,7 +23,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Admin Panel</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -124,11 +120,11 @@
                     </table>      
 
                     <div class="row">
-                        <div class="input-field col s4 right">
+                        <div class="input-field col s1 left">
                             <input type="text" placeholder="date" name = "date" required>
                         </div>
-                        <div class="input-field col s4 right">
-                            <input type="submit" value ="submit" name = "submit">
+                        <div class="input-field col s1 left">
+                            <input class="input-field col s12 waves-effect waves-light btn" type="submit" value ="submit" name = "submit">
                         </div>
                     </div>
             </form>

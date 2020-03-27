@@ -73,7 +73,7 @@
 
 
         <div class="container">
-            <h5 class="indigo-text center">Customer Registration</h5>
+            <h5 class="indigo-text center"></h5>
             <div class="row">
                 <div class="row">
                     <div class="input-field col s6">
@@ -87,19 +87,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                         <input id="date" type="text" class="datepicker" required multiple>
                         <label for="date">Date</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
+                    
+                    <div class="input-field col s4">
                         <input id="time" type="text" name="time" required>
                         <label for="time">Time</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s4 right">
+                    <div class="input-field col s4 left">
                         <button id="button1" class="btn btn-large btn-register waves-effect indigo">Submit</button>
                     </div>
 
@@ -112,7 +111,7 @@
                         <input id ="date2" type="hidden" name="date2" value ="0"> 
                         <input id ="status" type="hidden" name="status" value ="pending">    
                         <br>
-                        <button id ="button2" class="btn btn-large btn-register waves-effect indigo" style="top:-20px;">Booking</button>
+                        <button id ="button2" class="btn btn-large btn-register waves-effect indigo right" style="top:-20px;">Booking</button>
                     </form>  
                 </div>
 

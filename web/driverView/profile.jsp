@@ -98,7 +98,7 @@
                     </table>
                     <div class="row">
                         <div class="input-field col s1 left">
-                            <input class="input-field col s12 waves-effect waves-light btn" type="submit" name = "available" value ="Available">
+                            <input class="input-field col s15 waves-effect waves-light btn" type="submit" name = "available" value ="Available">
                         </div>
                     </div>
                 </div>
