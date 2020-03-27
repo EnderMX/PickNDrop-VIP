@@ -17,15 +17,15 @@ How to setup pick N Drop:
 
 How to run Pick N Drop:
 
-customer
+customer|
 username: testc   
 password: test
 
-admin
+admin|
 username: testa
 password: test
 
-driver
+driver|
 username: testd
 password: test
 
