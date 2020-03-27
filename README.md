@@ -17,9 +17,17 @@ How to setup pick N Drop:
 
 How to run Pick N Drop:
 
-customer - username: testc   password: test
-admin - username: testa      password: test
-driver - username: testd     password: test
+customer
+username: testc   
+password: test
+
+admin
+username: testa
+password: test
+
+driver
+username: testd
+password: test
 
 - These are the user accounts created in order to easily enter the website and check functions.
 When first running the project, you will be automatically sent to home page.
