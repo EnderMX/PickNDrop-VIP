@@ -77,10 +77,6 @@ public class loginServlet extends HttpServlet {
                             HttpSession session = request.getSession(); //create session
                             request.getSession().setAttribute("customer", username); //making specific sessions
                             response.sendRedirect("customerView/customer.jsp");
-                        } else if (rs3.next()) {
-                            HttpSession session = request.getSession(); //create session
-                            request.getSession().setAttribute("admin", username);                            
-                            response.sendRedirect("adminView/admin.jsp");
                         } else { //if not found go to loginpage
                             loginError = "true";
                             request.setAttribute("error", loginError);
@@ -93,8 +89,16 @@ public class loginServlet extends HttpServlet {
                             HttpSession session = request.getSession(); //same thing as before
                             request.getSession().setAttribute("driver",username);
                             response.sendRedirect("driverView/driver.jsp");
-                        } else if (rs3.next()) {
-                            HttpSession session = request.getSession();
+                        } else { //if not found go to loginpage
+                            loginError = "true";
+                            request.setAttribute("error", loginError);
+                            response.sendRedirect(page);
+                        }   
+                        break;
+                    case "AdminLogin.jsp":
+                        //if using driver login page
+                        if (rs3.next()) {
+                            HttpSession session = request.getSession(); //same thing as before
                             request.getSession().setAttribute("admin",username);
                             response.sendRedirect("adminView/admin.jsp");
                         } else { //if not found go to loginpage
@@ -102,7 +106,7 @@ public class loginServlet extends HttpServlet {
                             request.setAttribute("error", loginError);
                             response.sendRedirect(page);
                         }   
-                        break;
+                        break;    
                     default:
                         //RequestDispatcher view = request.getRequestDispatcher("login.jsp");
                         //view.forward(request, response);
@@ -172,12 +176,8 @@ public class loginServlet extends HttpServlet {
                             HttpSession session = request.getSession(); //create session
                             request.getSession().setAttribute("customer", username); //making specific sessions
                             response.sendRedirect("customerView/customer.jsp");
-                        } else if (rs3.next()) {
-                            HttpSession session = request.getSession(); //create session
-                            request.getSession().setAttribute("admin", username);                            
-                            response.sendRedirect("adminView/admin.jsp");
-                        } else { //if not found go to loginpage
-                            request.setAttribute("error", "Invalid Username or Password");
+                        }else { //if not found go to loginpage
+                            request.setAttribute("error2", "Invalid Username or Password");
                             response.sendRedirect(page);
                         }   
                         break;
@@ -187,15 +187,22 @@ public class loginServlet extends HttpServlet {
                             HttpSession session = request.getSession(); //same thing as before
                             request.getSession().setAttribute("driver",username);
                             response.sendRedirect("driverView/driver.jsp");
-                        } else if (rs3.next()) {
-                            HttpSession session = request.getSession();
-                            request.getSession().setAttribute("admin",username);
-                            response.sendRedirect("adminView/admin.jsp");
-                        } else { //if not found go to loginpage
-                            request.setAttribute("error", "Invalid Username or Password");
+                        }else { //if not found go to loginpage
+                            request.setAttribute("error2", "Invalid Username or Password");
                             response.sendRedirect(page);
                         }   
                         break;
+                    case "AdminLogin.jsp":
+                        //if using driver login page
+                        if (rs3.next()) {
+                            HttpSession session = request.getSession(); //same thing as before
+                            request.getSession().setAttribute("admin",username);
+                            response.sendRedirect("adminView/admin.jsp");
+                        }else { //if not found go to loginpage
+                            request.setAttribute("error2", "Invalid Username or Password");
+                            response.sendRedirect(page);
+                        }   
+                        break;    
                     default:
                         //RequestDispatcher view = request.getRequestDispatcher("login.jsp");
                         //view.forward(request, response);
