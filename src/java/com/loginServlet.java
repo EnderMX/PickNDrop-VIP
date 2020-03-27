@@ -60,7 +60,6 @@ public class loginServlet extends HttpServlet {
             Object s2 = request.getSession().getAttribute("driver");
             Object s3 = request.getSession().getAttribute("admin");
             String loginPost = request.getParameter("loginPost");
-            String loginError = "false";
             if (loginPost!=null && loginPost.equals("loginPost")){
                 DB db = new DB();
                 db.setConnection("root", "root");
@@ -78,9 +77,8 @@ public class loginServlet extends HttpServlet {
                             request.getSession().setAttribute("customer", username); //making specific sessions
                             response.sendRedirect("customerView/customer.jsp");
                         } else { //if not found go to loginpage
-                            loginError = "true";
-                            request.setAttribute("error", loginError);
-                            response.sendRedirect(page);
+                            request.setAttribute("error", "Invalid Username or Password");
+                            response.sendRedirect("InvalidCustomerLogin.jsp");
                         }   
                         break;
                     case "DriverLogin.jsp":
@@ -90,9 +88,8 @@ public class loginServlet extends HttpServlet {
                             request.getSession().setAttribute("driver",username);
                             response.sendRedirect("driverView/driver.jsp");
                         } else { //if not found go to loginpage
-                            loginError = "true";
-                            request.setAttribute("error", loginError);
-                            response.sendRedirect(page);
+                            request.setAttribute("error", "Invalid Username or Password");
+                            response.sendRedirect("InvalidDriverLogin.jsp");
                         }   
                         break;
                     case "AdminLogin.jsp":
@@ -102,9 +99,8 @@ public class loginServlet extends HttpServlet {
                             request.getSession().setAttribute("admin",username);
                             response.sendRedirect("adminView/admin.jsp");
                         } else { //if not found go to loginpage
-                            loginError = "true";
-                            request.setAttribute("error", loginError);
-                            response.sendRedirect(page);
+                            request.setAttribute("error", "Invalid Username or Password");
+                            response.sendRedirect("InvalidAdminLogin.jsp");
                         }   
                         break;    
                     default:
@@ -150,6 +146,7 @@ public class loginServlet extends HttpServlet {
         
         String loginGet = request.getParameter("loginGet");         //getting parameters to check loginstatus
         String logout = request.getParameter("logout");
+        String loginError = "false";
         if(loginGet != null){                           //if it is not null go to login page
            response.sendRedirect(request.getContextPath() + "/login.jsp"); 
         }else if(logout != null){                       //if it is not null invalidate session and go to login page
@@ -177,7 +174,8 @@ public class loginServlet extends HttpServlet {
                             request.getSession().setAttribute("customer", username); //making specific sessions
                             response.sendRedirect("customerView/customer.jsp");
                         }else { //if not found go to loginpage
-                            request.setAttribute("error2", "Invalid Username or Password");
+                            loginError = "true";
+                            request.setAttribute("error", loginError);
                             response.sendRedirect(page);
                         }   
                         break;
@@ -188,7 +186,8 @@ public class loginServlet extends HttpServlet {
                             request.getSession().setAttribute("driver",username);
                             response.sendRedirect("driverView/driver.jsp");
                         }else { //if not found go to loginpage
-                            request.setAttribute("error2", "Invalid Username or Password");
+                            loginError = "true";
+                            request.setAttribute("error", loginError);
                             response.sendRedirect(page);
                         }   
                         break;
@@ -199,7 +198,7 @@ public class loginServlet extends HttpServlet {
                             request.getSession().setAttribute("admin",username);
                             response.sendRedirect("adminView/admin.jsp");
                         }else { //if not found go to loginpage
-                            request.setAttribute("error2", "Invalid Username or Password");
+                            request.setAttribute("error", loginError);
                             response.sendRedirect(page);
                         }   
                         break;    
