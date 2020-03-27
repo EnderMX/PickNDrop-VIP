@@ -1,15 +1,19 @@
 # PickNDrop-VIP
 How to setup pick N Drop:
 
-- If calcServlet shows errors. then need to delete calculateDistanceAndTime function and remove webservice ref.. 
-- After that delete calculateDistanceAndTime file inside Web Service References.
-- Then create web service client by right clicking project, in Project browse find the bookingCalc project and select it. This project is inside our pick N Drop project. So, you can move it to another location if you want.
 - Inside the project folder, java db database is there. It is called SprintTwoDatabase.
-- Have to copy it to netbeans java db folder. To do this easily, netbean’s service tab can show path. In service tab under Databases there will be 
-- may need to connect database manually in service tab Java DB. Right click on it and will show path file where databases are stored. Copy paste the SprintTwoDatabase folder in there.
-- After that we need to connect to SprintTwoDatabase manually. Right click on it and connect. It will be called “jdbc:derby://localhost:1527/SprintTwoDatabase [root on ROOT]”
+- Have to copy it to netbeans java db folder. To do this easily, netbean’s service tab can show path. In service tab under Databases there will be java db. Right click on it and will show path file where databases are stored. Copy paste the SprintTwoDatabase folder in there.
+- May need to close and open netbeans for it to show up. After that we need to connect to SprintTwoDatabase manually. Right click on it and connect. It will be called “jdbc:derby://localhost:1527/SprintTwoDatabase [root on ROOT]”
 - an error might show and afterwards you need to login to the database with the credentials.
 - user and pass for SprintTwoDatabase is "root" , "root" respectively.
+
+- database is over. now to setup webservice which is also a project inside this project. It is called bookingCalcWS.
+- Copy paste it to any location. preferably to netbeans project folder. After that open project in netbeans and right click it and deploy it.
+
+- IF calcServlet shows errors. then need to delete calculateDistanceAndTime function and remove webservice ref.. 
+- After that delete calculateDistanceAndTime file inside Web Service References.
+- Then create web service client by right clicking project, in Project browse find the bookingCalc project and select it. This project is inside our pick N Drop project. So, you can move it to another location if you want.
+
 - Optional: Select chrome as web browser. 
 
 
