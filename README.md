@@ -1,7 +1,7 @@
 # PickNDrop-VIP
 How to setup pick N Drop:
 
-- Inside the project folder, java db database is there. It is called SprintTwoDatabase.
+- Inside the project folder, java db database is there. It is called SprintTwoDatabase. within extras folder.
 - Have to copy it to netbeans java db folder. To do this easily, netbean’s service tab can show path. In service tab under Databases there will be java db. Right click on it and will show path file where databases are stored. Copy paste the SprintTwoDatabase folder in there.
 - May need to close and open netbeans for it to show up. After that we need to connect to SprintTwoDatabase manually. Right click on it and connect. It will be called “jdbc:derby://localhost:1527/SprintTwoDatabase [root on ROOT]”
 - an error might show and afterwards you need to login to the database with the credentials.
