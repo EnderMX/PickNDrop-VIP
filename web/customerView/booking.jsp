@@ -173,7 +173,7 @@
 
 
                 });
-                
+
 
                 function initMap() {
                     var directionsService = new google.maps.DirectionsService();
@@ -187,8 +187,8 @@
                     document.getElementById('time2').value = d;
                     document.getElementById('origin2').value = o2;
                     document.getElementById('destination2').value = d2;
-                    
-                    
+
+
                     var request = {
                         origin: o2,
                         destination: d2,
@@ -197,26 +197,26 @@
 
                     directionsService.route(request, function (response, status) {
                         if (status == google.maps.DirectionsStatus.OK) {
-                            document.getElementById('distance').innerHTML = "Distance: ";
-                            document.getElementById('duration').innerHTML = "Duration: ";
-                            document.getElementById('sum').innerHTML = "Sum: ";
-                            document.getElementById('distance').innerHTML +=
-                                    response.routes[0].legs[0].distance.value + " meters";
-                            document.getElementById('duration').innerHTML +=
-                                    response.routes[0].legs[0].duration.value + " seconds";
-                            //document.getElementById('distance').value = response.routes[0].legs[0].distance.value;
-                            //document.getElementById('duration').value = response.routes[0].legs[0].duration.value;
+                        document.getElementById('distance').innerHTML = "Distance: ";
+                                document.getElementById('duration').innerHTML = "Duration: ";
+                                document.getElementById('sum').innerHTML = "Sum: ";
+                                document.getElementById('distance').innerHTML +=
+                                response.routes[0].legs[0].distance.value + " meters";
+                                document.getElementById('duration').innerHTML +=
+                                response.routes[0].legs[0].duration.value + " seconds";
+                                //document.getElementById('distance').value = response.routes[0].legs[0].distance.value;
+                                //document.getElementById('duration').value = response.routes[0].legs[0].duration.value;
 
-                            document.getElementById('distance2').value = response.routes[0].legs[0].distance.value;
-                            document.getElementById('duration2').value = response.routes[0].legs[0].duration.value;
-                            directionsDisplay.setDirections(response);
-                            var bookingfee = 1.5;
-                            var baserate = 0.1;
-                            var drivetime = 0.2;
-                            var time = response.routes[0].legs[0].duration.value;
-                            var distance = response.routes[0].legs[0].distance.value;
-                            var sum = (baserate * distance) + (drivetime * time) + bookingfee;
-                            document.getElementById('sum').innerHTML += "$" + sum;
+                                document.getElementById('distance2').value = response.routes[0].legs[0].distance.value;
+                                document.getElementById('duration2').value = response.routes[0].legs[0].duration.value;
+                                directionsDisplay.setDirections(response);
+                                
+                                var bookingfee = 1.5;
+                                var baserate = 0.1;
+                                var time = document.getElementById('duration2').value / 60; //changing seconds to minute
+                                var distance = document.getElementById('distance2').value;
+                                var sum = ((baserate * distance) + time + bookingfee);
+                                document.getElementById('sum').innerHTML += "$" + sum;
                         }
                     });
                 }
