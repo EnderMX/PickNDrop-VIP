@@ -45,7 +45,7 @@ Driver
 
 Admin
 
-- Admin has its own login page where you can access the page by writing the adminLogin.jsp at the end of url
+- Admin has its own login page where you can access the page by writing the AdminLogin.jsp at the end of url
 - To check all customers, click on customer page.
 - To check all drivers, click on driver page.
 - In driver page the admin can also add/delete/edit drivers
