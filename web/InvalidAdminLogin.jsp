@@ -24,7 +24,7 @@
                 <div class="container">
                     <div class="z-depth-1 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
 
-                        <h5 class="indigo-text">Login</h5>
+                        <h5 class="indigo-text">Admin Login</h5>
                         <form class="col s12" action="loginServlet.do" method="post">
                             <div class='row'>
                                 <div class='col s12'>
@@ -60,7 +60,7 @@
                         </form>
                     </div>
                 </div>
-                <p>Not registered yet? <a href="registration.jsp">Register now</a></p>
+                <p>Not registered yet? <a href="Registration.jsp">Register now</a></p>
                 <p>Are you a registered driver? <a href="DriverLogin.jsp">Login as a driver</a></p>
             </center>
 

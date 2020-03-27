@@ -86,13 +86,15 @@
                             //int driverID =3;
                             //int driverID = Integer.parseInt(request.getParameter("driverID"));
                             int driverID = 0;
+                            String date = request.getParameter("bookingDate");
                             String driverIDStr = request.getParameter("driverID");
                             if (driverIDStr != null && driverIDStr.trim().length() > 0) {
                                 Integer.parseInt(driverIDStr);
                             }
-                            pp = con.prepareStatement("SELECT * FROM BOOKING where STATUS=? AND DRIVERID=?");  //taking all completed requests from specified driverid
+                            pp = con.prepareStatement("SELECT * FROM BOOKING where STATUS=? AND DRIVERID=? AND BOOKINGDATE=?");  //taking all completed requests from specified driverid
                             pp.setString(1, "COMPLETED");
                             pp.setString(2, driverIDStr);
+                            pp.setString(3, date);
                             ResultSet rs = pp.executeQuery();
                             while (rs.next()) {
 
@@ -116,6 +118,9 @@
                     <div class="row">
                         <div class="input-field col s1 left">
                             <input type="text" placeholder="driver id" name = "driverID" required>
+                        </div>
+                         <div class="input-field col s1 left">
+                            <input type="text" placeholder="date" name = "bookingDate" required>
                         </div>
                         <div class="input-field col s1 left">
                             <input class="input-field col s12 waves-effect waves-light btn" type="submit" value ="submit" name = "submit">

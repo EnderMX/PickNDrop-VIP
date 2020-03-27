@@ -60,7 +60,7 @@
                         </form>
                     </div>
                 </div>
-                <p>Not registered yet? <a href="registration.jsp">Register now</a></p>
+                <p>Not registered yet? <a href="Registration.jsp">Register now</a></p>
                 <p>Are you a registered driver? <a href="DriverLogin.jsp">Login as a driver</a></p>
             </center>
 

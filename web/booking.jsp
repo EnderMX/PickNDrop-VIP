@@ -91,7 +91,7 @@
                         <input id="date" type="text" class="datepicker" required multiple>
                         <label for="date">Date</label>
                     </div>
-                    
+
                     <div class="input-field col s4">
                         <input id="time" type="text" name="time" required>
                         <label for="time">Time</label>
@@ -202,10 +202,9 @@
                             directionsDisplay.setDirections(response);
                             var bookingfee = 1.5;
                             var baserate = 0.1;
-                            var drivetime = 0.2;
-                            var time = response.routes[0].legs[0].duration.value;
-                            var distance = response.routes[0].legs[0].distance.value;
-                            var sum = (baserate * distance) + (drivetime * time) + bookingfee;
+                            var time = document.getElementById('duration2').value / 60; //changing seconds to minute
+                            var distance = document.getElementById('distance2').value;
+                            var sum = ((baserate * distance) + time + bookingfee);
                             document.getElementById('sum').innerHTML += "$" + sum;
                         }
                     });
