@@ -5,17 +5,14 @@
  */
 package com;
 
+import com.lambdaworks.crypto.SCryptUtil;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -95,7 +92,8 @@ public class AddDriver extends HttpServlet {
                 while (rs.next()) {
                     uNamestatus = "true";
                 }
-                
+
+                //selects the email from the driver table
                 pp = con.prepareStatement("SELECT * FROM DRIVER WHERE EMAIL=?");
                 pp.setString(1, email);
                 rs = pp.executeQuery();
@@ -113,13 +111,13 @@ public class AddDriver extends HttpServlet {
                     //Set param values
                     pp.setString(1, username);
                     pp.setString(2, name);
-                    pp.setString(3, password);
+                    pp.setString(3, hashPassword(password));
                     pp.setString(4, email);
 
                     //Execute SQL query
                     pp.executeUpdate();
                     response.sendRedirect("adminView/adminDriver.jsp");
-                }else{
+                } else {
                     addFail = "true";
                     request.getSession().setAttribute("addFail", addFail);
                     response.sendRedirect("adminView/adminDriver.jsp");
@@ -147,11 +145,16 @@ public class AddDriver extends HttpServlet {
                 }//end finally try
             }//end try
 
-
         } else {
             addFail = "true";
             request.getSession().setAttribute("addFail", addFail);
             response.sendRedirect("adminView/admin.jsp");
         }
+    }
+
+    public static String hashPassword(String password) {
+        String generatedSecuredPasswordHash = SCryptUtil.scrypt(password, 16, 16, 16);
+        return generatedSecuredPasswordHash;
+
     }
 }
