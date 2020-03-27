@@ -8,10 +8,9 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css"> 
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
-        <title>JSP Page</title>
+        <title>About Page</title>
     </head>
     <body>
-
 
         <div id="msg" style="font-size:largest;">
 
@@ -19,9 +18,10 @@
         </div>
         <div id="body" style="display:none;">
 
+
             <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center">About</a>
+                <div class="nav-wrapper red">
+                    <a href="#" class="brand-logo center">Customer Profile</a><a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <form action="${pageContext.servletContext.contextPath}/loginServlet.do" method ="get">
@@ -45,6 +45,7 @@
                         </li>
                     </ul>
 
+
                     <ul class="dropdown-content" id="user_dropdown">
 
                         <li><a href="#!">Profile</a></li>
@@ -60,6 +61,10 @@
                 </div>
             </nav>
         </div>
+
+        <h5>About</h5>
+        <p>This website is developed as an assignment for Enterprise System Development module.</p>
+
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
         <script type="text/javascript">

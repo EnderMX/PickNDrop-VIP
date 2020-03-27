@@ -12,7 +12,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css"> 
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
-        <title>JSP Page</title>
+        <title>View Bookings Page</title>
     </head>
     <body>
 
@@ -24,7 +24,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Bookings</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -111,9 +111,16 @@
                             }
 
                         %>
-                        <input type="submit" value = "Cancel" name = "delete">
-                        <input type="text" name = "id" placeholder="booking id" required> 
+                        
                     </table>
+                        <div class="row">
+                            <div class="input-field col s1 right" style="left:-1290px;">
+                                <input class="input-field col s12 waves-effect waves-light btn" type="submit" value = "Cancel" name = "delete">
+                            </div>
+                            <div class="input-field col s1">
+                                <input type="text" name = "id" placeholder="booking id" required> 
+                            </div>
+                        </div>
                 </div>
             </form>   
         </div>

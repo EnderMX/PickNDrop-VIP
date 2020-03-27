@@ -10,7 +10,7 @@
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
 
 
-        <title>JSP Page</title>
+        <title>Home Page</title>
     </head>
     <body>
 
@@ -21,8 +21,8 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center">Driver Profile</a>
+                <div class="nav-wrapper red">
+                    <a href="#" class="brand-logo center">Driver Profile</a><a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li>
                             <form action="${pageContext.servletContext.contextPath}/loginServlet.do" method ="get">
@@ -46,18 +46,42 @@
                         </li>
                     </ul>
 
-                    <ul class="dropdown-content" id="user_dropdown">
-
-                        <li><a href="#!">Profile</a></li>
-
-                    </ul>
-                    <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    
+                    <ul id="mobile-demo" class="side-nav">
                         <li><a class="active" href="driver.jsp">Home</a></li>
                         <li><a href="viewBooking.jsp">View Booking</a></li>
                         <li><a href="profile.jsp">Profile</a></li>
                     </ul>
                 </div>
-            </nav>  
+            </nav>
+
+            <div class="col s6">
+                <div style="padding: 35px;" align="center" class="card">
+                    <div class="row">
+                        <div class="left card-title">
+                            <b>Driver profile</b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <a href="profile.jsp">
+                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                                <i class="indigo-text text-lighten-1 large material-icons">person</i>
+                                <span class="indigo-text text-lighten-1"><h5>Show Profile</h5></span>
+                            </div>
+                        </a>
+
+                        <div class="col s1">&nbsp;</div>
+                        <div class="col s1">&nbsp;</div>
+
+                        <a href="viewBooking.jsp">
+                            <div style="padding: 30px;" class="grey lighten-3 col s5 waves-effect">
+                                <i class="indigo-text text-lighten-1 large material-icons">assignment</i>
+                                <span class="indigo-text text-lighten-1"><h5>View Bookings</h5></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         <script>
             <%

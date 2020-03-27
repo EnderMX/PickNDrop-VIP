@@ -20,7 +20,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">About</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -59,6 +59,10 @@
                 </div>
             </nav> 
         </div>
+
+        <h5>About</h5>
+        <p>This website is developed as an assignment for Enterprise System Development module.</p>
+
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#body').show();

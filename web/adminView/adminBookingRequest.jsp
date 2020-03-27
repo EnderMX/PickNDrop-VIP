@@ -16,7 +16,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css"> 
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
-        <title>JSP Page</title>
+        <title>Booking Requests Page</title>
     </head>
     <body>
 
@@ -67,9 +67,9 @@
                     </ul>
                 </div>
             </nav> 
-           <form action="adminBookingRequest.jsp">  
-            <div id="customer1" class="col s12">
-                
+            <form action="adminBookingRequest.jsp">  
+                <div id="customer1" class="col s12">
+
                     <table class="respnsive-table highlight">
                         <tr>
                             <td>BOOKING ID</td>
@@ -90,32 +90,30 @@
                             int profit = 0;
                             //int driverID =3;
                             //int driverID = Integer.parseInt(request.getParameter("driverID"));
-                            
+
                             int driverID = 0;
                             String driverIDStr = request.getParameter("driverID");
-                               String date = request.getParameter("date");
+                            String date = request.getParameter("date");
                             if (driverIDStr != null && driverIDStr.trim().length() > 0) {
                                 Integer.parseInt(driverIDStr);
                             }
-                            
-                            
-                            
+
                             pp = con.prepareStatement("SELECT * FROM BOOKING where STATUS=? AND BOOKINGDATE=?");  //taking all completed requests from specified driverid
                             pp.setString(1, "COMPLETED");
-                            pp.setString(2,date);
+                            pp.setString(2, date);
                             ResultSet rs = pp.executeQuery();
                             while (rs.next()) {
 
                                 total = rs.getInt("TOTAL"); //inserting to table
-%>
+                        %>
                         <td><%=rs.getInt("BOOKINGID")%></td>    
                         <td><%=rs.getString("ORIGIN")%></td>                
                         <td><%=rs.getString("DESTINATION")%></td>
                         <td><%=rs.getInt("TOTAL")%></td>
                         <td><%=gst = rs.getInt("TOTAL") * 5 / 100%></td> 
                         <td><%=netTotal = rs.getInt("TOTAL") + gst%></td> 
-                          <td><%=rs.getString("BOOKINGDATE")%></td>
-                          <td><%=rs.getString("STATUS")%></td>
+                        <td><%=rs.getString("BOOKINGDATE")%></td>
+                        <td><%=rs.getString("STATUS")%></td>
                         <tr></tr>
 
                         <%
@@ -124,25 +122,31 @@
                             }
                         %>
                     </table>      
-                     
-                     <input type="text" placeholder="date" name = "date" required>   
-            <input type="submit" value ="submit" name = "submit">
-           </form>
-            </div>
-            
-            <div>
-                <p>Total Profit: <% out.println(profit);%></p>
-                
-            </div>
-        </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#body').show();
-                $('#msg').hide();
-            });
-        </script>
 
-    </body>
+                    <div class="row">
+                        <div class="input-field col s4 right">
+                            <input type="text" placeholder="date" name = "date" required>
+                        </div>
+                        <div class="input-field col s4 right">
+                            <input type="submit" value ="submit" name = "submit">
+                        </div>
+                    </div>
+            </form>
+        </div>
+
+        <div>
+            <p>Total Profit: <% out.println(profit);%></p>
+
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#body').show();
+            $('#msg').hide();
+        });
+    </script>
+
+</body>
 </html>

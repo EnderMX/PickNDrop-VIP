@@ -1,7 +1,3 @@
-<%-- 
-   
---%>
-
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -16,7 +12,7 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css"> 
         <script src="${pageContext.servletContext.contextPath}/js/jquery.min.js"></script>        
-        <title>JSP Page</title>
+        <title>Turnover Page</title>
     </head>
     <body>
 
@@ -27,7 +23,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Admin Panel</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -67,9 +63,9 @@
                     </ul>
                 </div>
             </nav> 
-           <form action="adminTurnover.jsp">  
-            <div id="customer1" class="col s12">
-                
+            <form action="adminTurnover.jsp">  
+                <div id="customer1" class="col s12">
+
                     <table class="respnsive-table highlight">
                         <tr>
                             <td>BOOKING ID</td>
@@ -96,12 +92,12 @@
                             }
                             pp = con.prepareStatement("SELECT * FROM BOOKING where STATUS=? AND DRIVERID=?");  //taking all completed requests from specified driverid
                             pp.setString(1, "COMPLETED");
-                            pp.setString(2,driverIDStr);
+                            pp.setString(2, driverIDStr);
                             ResultSet rs = pp.executeQuery();
                             while (rs.next()) {
 
                                 total = rs.getInt("TOTAL"); //inserting to table
-%>
+                        %>
                         <td><%=rs.getInt("BOOKINGID")%></td>    
                         <td><%=rs.getString("ORIGIN")%></td>                
                         <td><%=rs.getString("DESTINATION")%></td>
@@ -116,25 +112,32 @@
 
                             }
                         %>
-                    </table>      
-                    <input type="text" placeholder="driver id" name = "driverID" required>                
-            <input type="submit" value ="submit" name = "submit">
-           </form>
-            </div>
-            
-            <div>
-                <p>Total Profit: <% out.println(profit);%></p>
-                
-            </div>
+                    </table>
+                    <div class="row">
+                        <div class="input-field col s1 left">
+                            <input type="text" placeholder="driver id" name = "driverID" required>
+                        </div>
+                        <div class="input-field col s1 left">
+                            <input class="input-field col s12 waves-effect waves-light btn" type="submit" value ="submit" name = "submit">
+                        </div>
+                    </div>
+            </form>
         </div>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#body').show();
-                $('#msg').hide();
-            });
-        </script>
+    
+    
+    <div>
+        <p>Total Profit: <% out.println(profit);%></p>
 
-    </body>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#body').show();
+        $('#msg').hide();
+    });
+</script>
+
+</body>
 </html>

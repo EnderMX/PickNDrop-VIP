@@ -20,7 +20,7 @@
         <div id="body" style="display:none;">
 
             <nav>
-                <div class="nav-wrapper">
+                <div class="nav-wrapper red">
                     <a href="#" class="brand-logo center">Contact</a>
                     <ul class="right hide-on-med-and-down">
                         <li>
@@ -59,6 +59,18 @@
                 </div>
             </nav> 
         </div>
+
+        <h5>Contact</h5>
+        <p>This website is developed by:
+            <br>
+            Ibrahim Naish: S1701195
+            <br>
+            Iruzaam Abdulla: S1700005
+            <br>
+            Zidane Mahmood: S1701391
+            <br>
+            Mohamed AimanS: S1700130
+        </p>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>                    
         <script type="text/javascript">
