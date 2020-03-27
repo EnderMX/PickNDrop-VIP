@@ -30,7 +30,7 @@
                                     <div class='col s12'>
                                     </div>
                                 </div>
-
+                                
                                 <%
                                     String login_msg = (String) request.getAttribute("error");  //checking if error session is made
                                     if (login_msg != null) {
