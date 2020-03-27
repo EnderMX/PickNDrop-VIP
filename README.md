@@ -65,3 +65,11 @@ Admin
 - In turnover page the admin can see how many bookings a  driver has completed by entering driver ID.
 - In booking request page, the admin can see how many bookings have been made in that day by entering the date.  
 - After finishing you can click logout to end session.
+
+
+Project done by:
+Ibrahim Naish: testingb101
+Iruzaam Abdulla: Igneel/Night/Randomperson
+Zidane Mahmood: EnderMX
+Mohamed Aiman: Masroshi
+
